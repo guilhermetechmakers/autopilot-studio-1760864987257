@@ -61,7 +61,15 @@ export default {
   			'bounce-in': 'bounceIn 0.6s ease-out',
   			stagger: 'fadeInUp 0.4s ease-out',
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'float': 'float 6s ease-in-out infinite',
+  			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  			'gradient-x': 'gradient-x 15s ease infinite',
+  			'gradient-y': 'gradient-y 15s ease infinite',
+  			'gradient-xy': 'gradient-xy 15s ease infinite',
+  			'wiggle': 'wiggle 1s ease-in-out infinite',
+  			'typewriter': 'typewriter 2s steps(40) 1s 1 normal both',
+  			'blink': 'blink 1s infinite'
   		},
   		keyframes: {
   			fadeIn: {
@@ -153,6 +161,76 @@ export default {
   				},
   				to: {
   					height: '0'
+  				}
+  			},
+  			float: {
+  				'0%, 100%': {
+  					transform: 'translateY(0px)'
+  				},
+  				'50%': {
+  					transform: 'translateY(-20px)'
+  				}
+  			},
+  			'gradient-x': {
+  				'0%, 100%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'left center'
+  				},
+  				'50%': {
+  					'background-size': '200% 200%',
+  					'background-position': 'right center'
+  				}
+  			},
+  			'gradient-y': {
+  				'0%, 100%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'center top'
+  				},
+  				'50%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'center bottom'
+  				}
+  			},
+  			'gradient-xy': {
+  				'0%, 100%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'left center'
+  				},
+  				'25%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'right center'
+  				},
+  				'50%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'right bottom'
+  				},
+  				'75%': {
+  					'background-size': '400% 400%',
+  					'background-position': 'left bottom'
+  				}
+  			},
+  			wiggle: {
+  				'0%, 100%': {
+  					transform: 'rotate(-3deg)'
+  				},
+  				'50%': {
+  					transform: 'rotate(3deg)'
+  				}
+  			},
+  			typewriter: {
+  				from: {
+  					width: '0'
+  				},
+  				to: {
+  					width: '100%'
+  				}
+  			},
+  			blink: {
+  				'0%, 50%': {
+  					opacity: '1'
+  				},
+  				'51%, 100%': {
+  					opacity: '0'
   				}
   			}
   		},
