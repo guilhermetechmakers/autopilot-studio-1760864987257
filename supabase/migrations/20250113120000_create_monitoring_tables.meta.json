@@ -1,0 +1,12 @@
+{
+  "migration_name": "20250113120000_create_monitoring_tables",
+  "created_at": "2025-01-13T12:00:00Z",
+  "description": "Create comprehensive monitoring and alerting system tables",
+  "tables_created": ["system_health", "health_checks", "incidents", "alerts", "performance_metrics"],
+  "tables_modified": [],
+  "tables_deleted": [],
+  "breaking_changes": false,
+  "rollback_sql": "DROP TABLE IF EXISTS performance_metrics CASCADE; DROP TABLE IF EXISTS alerts CASCADE; DROP TABLE IF EXISTS incidents CASCADE; DROP TABLE IF EXISTS health_checks CASCADE; DROP TABLE IF EXISTS system_health CASCADE;",
+  "estimated_rows": 0,
+  "requires_downtime": false
+}

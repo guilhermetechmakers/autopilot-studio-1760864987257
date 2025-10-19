@@ -19,7 +19,8 @@ import {
   User,
   HelpCircle,
   LogOut,
-  Menu
+  Menu,
+  Activity
 } from "lucide-react";
 
 interface SidebarProps {
@@ -83,6 +84,11 @@ const navigationItems = [
     name: "Notifications",
     href: "/dashboard/notifications",
     icon: Bell,
+  },
+  {
+    name: "Monitoring",
+    href: "/dashboard/monitoring",
+    icon: Activity,
   },
 ];
 

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
+import { ErrorBoundary } from "@/setup/monitoring";
 
 // Pages
 import LandingPage from "@/pages/LandingPage";
@@ -22,6 +23,7 @@ import HandoverPage from "@/pages/dashboard/HandoverPage";
 import NotificationsPage from "@/pages/dashboard/NotificationsPage";
 import AdminPage from "@/pages/dashboard/AdminPage";
 import ProfilePage from "@/pages/dashboard/ProfilePage";
+import { MonitoringPage } from "@/pages/dashboard/MonitoringPage";
 import PricingPage from "@/pages/PricingPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
@@ -39,9 +41,10 @@ const queryClient = new QueryClient({
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <BrowserRouter>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <BrowserRouter>
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<LandingPage />} />
@@ -66,14 +69,16 @@ export default function App() {
             <Route path="/dashboard/handover" element={<HandoverPage />} />
             <Route path="/dashboard/notifications" element={<NotificationsPage />} />
             <Route path="/dashboard/admin" element={<AdminPage />} />
+            <Route path="/dashboard/monitoring" element={<MonitoringPage />} />
             <Route path="/dashboard/profile" element={<ProfilePage />} />
             
             {/* 404 Route */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </BrowserRouter>
-        <Toaster />
-      </ThemeProvider>
-    </QueryClientProvider>
+          </BrowserRouter>
+          <Toaster />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
